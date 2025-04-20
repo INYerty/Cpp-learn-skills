@@ -1,0 +1,137 @@
+Description
+（1）编写一个学生类，有学号（整数）、分数两个成员，生成对象时可以指定这两个属性的值。
+生成对象后，可以随时输出这些信息。
+
+（2）编写一个教师类，成员包括姓名和年龄。生成对象时也可以指定这些属性。
+另外，也可以随时输出这些属性
+
+（3）编写一个Pair类，其成员有两个：教师和学生。要求：
+
+      A）每个派对在生成的时候，可以指定老师和学生的属性
+
+      B）可以随时输出任何一个派对的属性，包括老师的信息和学生的信息
+
+（4）每个对象（包括学生和老师）构造或析构时，都要有相应的文字输出，
+以便验证程序的执行顺序。
+
+
+
+注意：系统内部已经写好了主函数（如下），提交代码时不要再写，系统会自动在你提交的代码后面
+，加上下面的主函数。
+
+int main()
+
+{
+
+    int n, s, age;
+
+    char name[10];
+
+    cin>>name>>age>>n>>s;
+
+    Pair p(name, age, n ,s);
+
+    p.Disp();   //显示派对的信息
+
+    return 0;
+
+}
+
+
+Input
+输入教师和学生的信息
+
+
+Output
+输出派对的信息及每个对象构造或析构的信息
+
+
+Sample Input
+张老师 38
+111111 90
+Sample Output
+Construct a teacher
+Construct a student
+Construct a pair
+张老师 38 111111 90
+Destructing pair...
+Destructing student...
+Destructing teacher...
+
+
+
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Student{
+    public:
+    Student(int n,int s){
+        studentn = n;
+        students = s;
+        cout<<"Construct a student"<<endl;
+    }
+    ~Student(){
+        cout<<"Destructing student..."<<endl;
+    }
+    void Disp(){
+        cout<<studentn<<" "<<students<<endl;
+    }
+
+    protected:
+    int studentn;
+    int students;
+};
+
+class Teacher{
+    public:
+    Teacher(char *name,int age){
+        teachername = new char[strlen(name)+1];
+        strcpy(teachername,name);
+        teacherage=age;
+        cout<<"Construct a teacher"<<endl;
+    }
+    ~Teacher() {
+        
+        delete[] teachername;
+        cout << "Destructing teacher..." << endl;
+    }
+    void Disp(){
+        cout<<teachername<<" "<<teacherage<<" ";
+    }
+
+    protected:
+    char* teachername;
+    int teacherage;
+
+};
+
+class Pair{
+    public:
+    Pair(char* name,int age,int n,int s):t(name,age),s(n,s){
+        cout<<"Construct a pair"<<endl;
+    }
+    ~Pair(){
+        cout<<"Destructing pair..."<<endl;
+    }
+
+    void Disp(){
+        t.Disp();
+        s.Disp();
+    }
+    protected:
+    Teacher t;
+    Student s;
+};
+
+int main()
+{
+    int n, s, age;
+    char name[10];
+    cin>>name>>age>>n>>s;
+    Pair p(name, age, n ,s);
+    p.Disp();   //显示派对的信息
+    return 0;
+}

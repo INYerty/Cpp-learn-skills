@@ -1,0 +1,49 @@
+第2题.22、构造函数、析构函数及冒号语法
+Description
+（1）编写一个日期类Tdate，有年、月、日三个成员，生成对象时可以指定年、月、日三个参数，可以输出这个日期。     
+（2）编写一个Student类，成员包括学号（整数）、学生的生日（Tdate的一个对象）     
+     要求：     
+      A）每个学生在生成的时候，可以指定学号和生日
+      B）可以输出学生的学号及生日（生日如何输出？）    
+（3）每个对象构造或析构时，都要有相应的文字输出，以便验证程序的执行顺序。
+运行下面的主函数：
+int main()
+{
+      int  n,  y,  m,  d;
+      cin>>n>>y>>m>>d;
+      Student  s(n, y, m ,d);
+      s.Disp();
+      return 0;
+}
+
+提示：birthday是Student类的成员，在Student类的作用域内，可以直接使用它。 
+就好比在void Student::Out()中，我们可以直接使用num一样，你也可以直接使用birthday。
+只不过，num只是个变量，不能表现行为，而birthday是个对象，你可以命令它做它能做的任何事
+
+Input
+输入四个整数，分别作为学号、出生年份、月份和日期。如：
+201  1990   10  1
+Output
+输出程序的运行结果，如：
+construct  Tdate
+construct  Student
+201,1990/10/1
+distruct  Student
+distruct Tdate
+
+
+
+Sample Input
+101 1991 1 1
+
+Sample Output
+construct Tdate
+construct Student
+101,1991/1/1
+distruct Student
+distruct Tdate
+
+
+
+
+Code 1 here:

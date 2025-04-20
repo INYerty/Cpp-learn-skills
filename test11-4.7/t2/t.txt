@@ -1,0 +1,167 @@
+Teacher类成员如下：
+
+       AssignScore(...); //用来修改某学生成绩
+
+       ......
+
+
+
+       char name[10];  //用来存储教师名字
+
+
+
+Student类定义如下：
+
+class Student{
+
+public:
+
+      ......
+
+
+
+protected:
+
+     char name[10];
+
+     int score;
+
+};
+
+
+
+今欲使Teacher中的AssignScore函数修改学生的成绩，
+请完善两个类的定义并运行下面的主程序。 
+
+
+
+int main()
+
+{
+
+ int n;
+
+ Teacher t("Wang");
+
+ Student s("Li",59);
+
+ s.Disp();
+
+ cin>>n;
+
+ //添加代码，修改学生成绩为n
+
+
+
+
+
+ s.Disp();
+
+ return 0;
+
+}
+
+
+Input
+输入新的分数
+
+
+Output
+输出修改前后的姓名和分数
+
+
+Sample Input
+70
+Sample Output
+Li,59
+Li,70
+Code 1 here:
+
+
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class Student;
+
+class Teacher {
+public:
+    Teacher(char* tname) {
+        strcpy(name, tname);
+    }
+
+    void AssignScore(Student& s, int newScore); // 修改函数声明
+
+protected:
+    char name[10];
+};
+
+class Student {
+public:
+    friend class Teacher; // 让 Teacher 成为友元类，能访问 score
+
+    Student(char* sname, int score1) {
+        strcpy(name, sname);
+        score = score1;
+    }
+
+    void Disp() {
+        cout << name << "," << score << endl;
+    }
+
+protected:
+    char name[10];
+    int score;
+};
+
+void Teacher::AssignScore(Student& s, int newScore) {
+    s.score = newScore;
+}
+
+int main() {
+    int n;
+    Teacher t("Wang");
+    Student s("Li", 59);
+    s.Disp(); // 原分数
+    cin >> n;
+    t.AssignScore(s, n);  // 使用教师对象修改成绩
+    s.Disp(); // 修改后的分数
+
+    return 0;
+}
+
+
+
+*******************************************************************************************************************
+///为什么开头class Student;
+
+
+ChatGPT 说：
+你问得很好！那一行 class Student; 是 类的前向声明（forward declaration）。我们来解释一下它的作用和必要性👇
+📌 class Student; 是什么意思？
+它的意思是：
+“我先告诉编译器：有一个叫 Student 的类，它后面会定义。”
+❓为什么需要前向声明？
+我们来看 Teacher 类的定义：
+class Teacher {
+public:
+    Teacher(char* tname);
+    void AssignScore(Student& s, int newScore); // 使用了 Student 类型
+    ...
+};
+你可以看到：Teacher 类里有一个函数 AssignScore(Student& s, int newScore)，它的参数用到了 Student 类型。
+📌 但此时还没有定义 Student 类！
+为了让编译器不报错，我们必须告诉编译器：Student 是一个合法的类名，稍后会定义。
+所以，我们就需要写在前面这一句：
+class Student; // 前向声明，告诉编译器先别急，Student 之后会定义
+🧠 举个比喻：
+就像你跟编译器说：“我马上要跟你介绍一个人叫 Student，我现在要提到他一下，虽然我还没说这个人是谁。”
+✅ 有了前向声明后，编译器就不会报错，可以继续往下编译，直到看到 Student 类真正的定义为止。
+📌 小结
+
+          问题	                                                 解答
+为什么要写 class Student;？	          因为 Teacher 类中用到了 Student 类的引用，但 Student 类的完整定义还没出现
+前向声明能解决什么？	               能让编译器知道 Student 是个合法的类型，避免报错
+是不是必须加？	                      只有在还没定义但你要提前用到这个类时，才需要前向声明
+

@@ -1,0 +1,163 @@
+Description
+设计一个苹果箱子类，要求：  
+
+
+（1）用户可以定制大小，若用户无要求，其规格是40*20*25立方厘米   
+
+
+（2）可以往箱子中放苹果 (设每立方米可以放1000个苹果)，也可以取苹果 
+
+
+（3）可以随时显示箱子中的苹果数    
+
+
+（4）箱子在扔掉(消亡)前应能自动检查有无苹果，若有则提示倒空，如：Empty First
+
+
+ 
+
+
+ 编写主函数：
+
+
+（1）生成一苹果箱子。箱子类型由用户选择，1---标准箱，2---定制。 
+若用户输入1，直接用“Box b”这种方式生成标准箱，
+若输入2，则必须再输入箱子的长宽高，然后用“Box b(...,...,...)”这种方式生成箱子。
+
+
+（2）加入一些苹果（若装不下，能装多少则装多少），显示苹果数目
+
+
+（3）拿出一些苹果（若箱子中的苹果数不足，则全部拿出即可），再显示箱子中苹果数
+
+
+特别注意：本题所有的函数参数均不允许带默认值，否则不得分。
+
+
+Input
+先输入1或2，表示箱子类型。1代表标准箱，2代表定制箱。若是定制的箱子，
+必须再输入三个数据，代表长宽高。
+
+
+
+最后输入两个数据，分别是要装入的苹果数和要拿出的苹果数。
+
+
+
+如： 1 
+
+
+
+          20  15       
+
+
+
+又如： 2
+
+
+
+             40 20 20
+
+
+
+             500  200
+
+
+Output
+输出程序的运行结果。
+
+
+Sample Input
+2
+60 40 50
+80 50
+Sample Output
+80
+30
+Empty First
+
+#include<iostream>
+using namespace std;
+class Box{
+    public:
+    Box(){
+        int len=40;
+        int width=20;
+        int high=25;
+        int num=0;
+        max=(40*0.01*20*0.01*25*0.01)*1000;
+        
+    }
+    Box(int a,int b,int c){
+        len=a;
+        width=b;
+        high=c;
+        int num=0;
+        max=(len*0.01*width*0.01*high*0.01)*1000;
+        
+    }
+    ~Box(){
+
+    }
+    void insertbox(int n){
+        if(max<n)
+        {
+            num=max;
+        }else{
+            num+=n;
+        }
+        
+        cout<<num<<endl;
+    }
+    void outbox(int m){
+        if(num<m)
+        {
+           num=0; 
+        }else{
+            num-=m;
+        }
+        
+    }
+
+    void Disp(){
+        cout<<num<<endl;
+        if(num!=0)
+        cout<<"Empty First"<<endl;
+    }
+
+    protected:
+    int len;
+    int width;
+    int high;
+    int num;
+    int max;
+
+};
+
+int main(){
+    int choice;
+    cin>>choice;
+    if(choice==1){
+        Box b;
+        int n1,m1;
+        cin>>n1>>m1;
+        b.insertbox(n1);
+        b.outbox(m1);
+        b.Disp();
+    }
+        
+    if(choice==2)
+    {
+        int x,y,z;
+        cin>>x>>y>>z;
+        Box b(x,y,z);
+        int n1,m1;
+        cin>>n1>>m1;
+        b.insertbox(n1);
+        b.outbox(m1);
+        b.Disp();
+    }
+    
+
+
+}

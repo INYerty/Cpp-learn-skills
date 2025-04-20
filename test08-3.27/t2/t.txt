@@ -1,0 +1,36 @@
+Description
+1、定义一个Name类，其数据成员只有一个char *pname,
+用来存储姓名在堆中的位置。
+2、再定义一个Student类，其成员包括：
+        int  n;   //学号
+        Name name; 
+3、主程序主要代码如下：
+ void fn(Student x)
+ {
+        x.Disp();
+ }
+ int main()
+ {
+        int n;
+        char name[10];
+        cin>>n>>name; 
+        Student s(n,name); 
+        fn(s);
+        return 0;
+ }
+
+根据上面的代码，给两个类添加相应的成员函数，并完善整个程序，然后提交全部代码。
+Input
+输入一个学号，一个姓名
+
+Output
+输出两行，分别是学号和姓名
+
+Sample Input
+1
+zhangsan
+
+Sample Output
+Num:1
+Name:zhangsan
+Code 1 here:

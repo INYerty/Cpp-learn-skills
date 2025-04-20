@@ -1,0 +1,44 @@
+/*Description
+1、定义下面的类：（根据主函数要求，需要什么成员函数，自己分析设定）       
+（1）写一个Person类，数据成员包括姓名、年龄。       
+（2）写一个Date类，成员为年、月、日。       
+（3）写一个Student类，除了姓名和年龄，还包括生日（Date的对象）和成绩，
+该类由Person派生而来 。
+
+（4）再写一个Teacher类，除了姓名和年龄，还有职称。并且，
+教师可以指定学生的成绩。
+该类也由Person派生而来。      
+
+2、编写主函数，生成一个学生、一个教师，输出他们的数据；
+教师重新指定学生的成绩后，输出学生的新数据。
+
+Input
+输入学生的姓名、年令、生日、原始分数
+再输入老师的姓名、年龄、职称
+最后输入学生的新分数
+如：
+
+Zhang 19 1992 10 30 59
+Li 30 jiangshi
+70
+
+Output
+输出学生的数据，老师的数据以及指定新分后的学生数据
+Sample Input
+
+Zhang 19 1992 10 30 59
+Li 30 jiangshi
+70
+
+Sample Output
+name:Zhang age:19
+birthday:1992/10/30
+score:59
+
+name:Li age:30
+title:jiangshi
+name:Zhang age:19
+birthday:1992/10/30
+score:70
+Code 1 here:
+*/

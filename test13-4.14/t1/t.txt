@@ -1,0 +1,66 @@
+Description
+师范类本科院校的学生，毕业之前需要到中学实习，
+此时，他的身份既是学生，又是老师。已知： 
+（1）学生有  姓名和年龄  两项数据，学生能显示自己的姓名和年龄，
+还能学习，当他学习时，屏幕输出I'm studying  
+（2）老师有  姓名和职称  两项数据，老师也能显示自己的两项数据，
+    还能上课，当他上课时，屏幕输出I'm teaching  
+（3）师范生实习时，他的职称是“jxzj”(注：见习助教的简拼)。
+	请由学生和老师两个类派生出师范实习生类Stu_teacher,
+    并能运行下面的程序： 
+
+
+int main()
+{
+    char name[15],title[20];
+    int age; 
+    cin>>name>>age>>title; 
+	Person p(name);
+    p.Disp();
+	Student s(name,age);
+    s.Disp();
+    s.Study();
+	Teacher t(name,title);
+    t.Disp();
+    t.Teach();
+	Stu_teacher st(name,age);
+    st.Disp();
+    st.Study();
+    st.Teach();
+    return 0;
+}  
+注意：主函数已经在后台，你只需要提交其他代码即可，
+系统会自动把主函数代码添加到你提交的代码之后。 
+提示：
+
+1. 显示或修改父类信息时，要通过调用父类的成员函数来实现
+（虽然子类可以访问父类的保护成员，但尽量不要这样做），
+如：生成Person对象时已有了姓名，子类要存上另外一个名字，
+最好（应该）调用Person类的成员函数。再比如：
+Stu_teacher要显示职称，应该调用Teacher的成员函数来实现
+2. 孙子类的构造函数中，若用冒号语法，需要在冒号语法中把
+父类、爷爷类都写出来
+Input
+	输入姓名和年龄 
+Output
+	输出相关信息 
+
+Sample Input
+zhangsan
+19
+zhujiao
+
+Sample Output
+zhangsan
+zhangsan
+19
+I'm studying
+zhangsan
+zhujiao
+I'm teaching
+zhangsan
+19
+jxzj
+I'm studying
+I'm teaching
+Code 1 here:

@@ -1,0 +1,92 @@
+Description
+根据以下程序框架，写出两处所缺代码，
+并将所缺代码提交到考试页面相应的文本框中。
+
+注意：
+
+    1.根据main()函数的代码，写出用到的成员函数，用不到的不要写，
+    虽用到但不需要自己定义的也不要写
+
+    2.本题程序中若用到诸如"delele[] p;"的代码, 提交时要改为"Delete(p);"
+    （注意是大写的D，且不要丢了括号。
+    提交时再改，VC中自己编程还是要用delete[]p;）
+
+#include<iostream>
+
+using namespace std; 
+
+#include <cstring>
+
+class Student{
+
+public:
+
+    /***********************************/
+
+    //此处缺代码
+
+    /***********************************/
+
+protected:
+
+    char *pname;   //名字用堆存储，pname只存储名字首址
+
+    int age;
+
+};
+
+/*****************************************/
+
+    //此处缺成员函数定义
+
+/*****************************************/
+
+
+
+int main()
+
+{
+
+    Student s("lisi",18);    
+
+    return 0;
+
+}
+
+
+Input
+Output
+Sample Input
+Sample Output
+
+
+
+
+#include <iostream>
+using namespace std;
+#include <cstring>
+class Student
+{
+public:
+    Student(char*,int);
+    ~Student();
+protected:
+    char *pname; // 名字用堆存储，pname只存储名字首址
+    int age;
+};
+
+Student::Student(char* name,int sage){
+    pname=new char[strlen(name)+1];
+    strcpy(pname,name);
+    age=sage;
+}
+Student::~Student() {
+    delete(pname);
+}
+
+int main()
+
+{
+    Student s("lisi", 18);
+    return 0;
+}
