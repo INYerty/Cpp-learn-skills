@@ -1,2 +1,2 @@
-# C-learn-skills
+# Cpp-learn-skills
 Code execise
