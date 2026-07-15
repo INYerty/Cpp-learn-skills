@@ -1,0 +1,1093 @@
+//t0
+
+Description
+定义一个学生类：      
+要求：      
+1、若不指定成绩，为0，若不指定姓名，为空
+（即：“”，只有空字符，空字符前面没有有效字符）      
+2、姓名自己找空间存储，其地址存放在pname中     
+3、能随时输出已生成学生的人数     
+----------------------------------------------------------------------------------      
+//student.h      
+class Student  {    
+public:      
+        //此处添加成员函数声明      
+
+
+ protected:      
+        // 此处添加数据成员     
+
+
+};      
+----------------------------------------------------------------------------------      
+//student.cpp      
+//此处添加代码      
+
+
+
+
+----------------------------------------------------------------------------      
+void f()    
+{
+      Student s1,s2;    
+      //填写代码显示人数    
+
+}     
+
+int main()      
+{
+     //填写代码显示此时学生的人数         
+
+     Student s1；
+     char name[10];
+     int s;
+     cin>>name>>s;  //输入s2的姓名和分数
+     Student s2(name,s);
+     cin>>name;     //输入s3的姓名
+     Student s3(name);           
+     //填写代码显示此时学生的人数，并显示三个人的数据    
+     
+     Student s4=s2;       
+     //填写代码显示此时学生的人数 （用另一种方法）   
+
+     f();    
+     //填写代码显示此时学生的人数      
+ 
+     return 0;
+}      
+-------------------------------------------------------------------------------------      
+运行程序，分析结果
+Input
+输入第二个学生的姓名和分数
+
+再输入第三个学生的姓名
+
+Output
+输出程序的运行结果
+
+Sample Input
+zhangsan
+89
+lisi
+Sample Output
+0
+3
+name:,score:0
+name:zhangsan,score:89
+name:lisi,score:0
+4
+6
+4
+HINT
+
+
+
+
+
+----------------------------------------------------------------------
+//t1
+
+
+
+
+
+
+10 分 第2题.31、构造、拷贝构造、析构、静态成员、多继承、虚拟继承
+Description
+
+1、定义一个家具类，成员至少有一个：
+char *ptype；//用来记录型号的存储位置，型号的内容存在堆中
+其余数据成员和成员函数根据需要自行添加
+
+2、定义一个Bed类，有型号、长宽高等数据，还有材质属性
+（木头的还是铁的），并且具有可以睡觉的功能(Sleep()函数)。
+
+3、定义一个Sofa类，有型号、长宽高等数据，还有一个属性：
+几人座，并且具有可以看电视的功能（WatchTV()函数）。
+
+4、设计一个两用沙发类SleeperSofa，具有折叠（FoldOut()）功能，
+并且能随时返回该类产品的生产数量（GetNum()函数)。
+以上各类的产品，均可以显示自己的属性(Disp()函数)
+
+
+Input
+按主函数框架顺序输入相关信息，
+如：床的型号是: B-1, 
+长宽高分别是: 1  2  3，
+材质是: wood，
+则输入：B_1 1 2 3 wood
+
+
+Output
+输出相关信息
+
+
+Sample Input
+B_1 1 2 3 wood   
+S_2 4 5 6 3
+SS_3 7 8 9 steel 3
+
+
+Sample Output
+type:B_1
+length:1
+width:2
+high:3
+material:wood
+Sleep
+
+type:S_2
+length:4
+width:5
+high:6
+Num:3
+Watch TV
+0
+
+
+type:SS_3
+length:7
+width:8
+high:9
+material:steel
+num:3
+1
+type:SS_3
+length:7
+width:8
+high:9
+material:steel
+num:3
+2
+type:SS_3
+length:7
+width:8
+high:9
+material:steel
+num:3
+3
+2
+Sleep
+Watch TV
+Fold Out
+Code 1 here:
+
+
+
+
+
+
+
+以下是主函数框架
+int main()
+{
+
+
+char type[20]; //存储床、沙发等家具的型号
+
+
+int a,b,c; //存储长宽高
+
+
+char material[10]; //床的材质
+
+
+int num; //沙发可坐人数量
+
+
+/////////////////////////////////////////////////////
+
+
+______________//输入床的数据 
+
+
+Bed bed(________); //生成一个床
+
+
+_____________//显示床的数据
+
+
+_______________//展示睡觉功能
+
+
+/////////////////////////////////////////////////////
+
+
+______________//输入沙发的数据 
+
+
+Sofa s(________);//生成一个沙发
+
+
+_____________//显示沙发的数据
+
+
+_______________//展示看电视功能
+
+
+/////////////////////////////////////////////////////
+
+
+____________//显示两用沙发产品数量
+
+
+_____________//输入两用沙发的数据
+
+
+SleeperSofa ss(___________);//生成一个两用沙发
+
+
+____________//显示两用沙发各项数据
+
+
+____________//显示两用沙发产品数量
+
+
+//////////////////////////////////////////////////////
+
+
+SleeperSofa sss(ss); //再生成一个
+
+
+_______________//显示刚生成产品信息
+
+
+______________//显示两用沙发产品数量
+
+
+///////////////////////////////////////////////////////
+
+
+_______________//堆中生成一个两用沙发,与前面sss数据相同
+
+
+______________//显示堆中刚生成的产品信息
+
+
+____________//显示两用沙发产品数量
+
+
+///////////////////////////////////////////////////////
+
+
+_____________//析构堆中产品
+
+
+____________//显示两用沙发产品数量
+
+
+/////////////////////////////////////////////////////////
+
+
+_______________//展示ss睡觉功能
+
+
+_______________//展示ss看电视功能
+
+
+_______________//展示ss折叠功能
+
+
+/////////////////////////////////////////////////////
+
+
+       return 0;
+
+
+}
+
+
+
+
+
+
+t2
+------------------------------------------------------------------------------------------------
+Description
+师范类本科院校的学生，毕业之前需要到中学实习，此时，他的身份既是学生，又是老师。
+请在上题（题目描述附后）的基础上，增加一个师范实习生类Stu_teacher,要求：  
+
+（1）使用继承派生出该类  //**不是运用父类对象
+
+（2）Student、Teacher、Stu_teacher三个类的disp()函数功能各不相同，并能表现出多态性   
+
+
+
+main函数如下：
+
+
+
+int main()
+
+{
+
+    char name[20],title[20];
+
+    int age,month,day,year,score;
+
+    cin>>name>>age>>year>>month>>day>>score;
+
+    Student s(name,age,year,month,day,score);
+
+    cin>>name>>age>>title;
+
+    Teacher t(name,age,title);
+
+    cin>>name>>age>>year>>month>>day>>score>>title;
+
+    Stu_teacher st(name,age,year,month,day,score,title);
+
+    s.Disp();  //显示学生的信息
+
+    t.Disp();  //显示教师的信息
+
+    st.Disp();  //显示实习老师的信息
+
+    //t.Assign(s,90);
+
+    //s.Disp();   
+
+    fn(s);  //调用函数fn，显示参数s的有关信息
+
+    fn(t);  //调用函数fn，显示参数t的有关信息
+
+    fn(st);  //调用函数fn，显示参数st的有关信息
+
+    return 0;
+
+}
+
+
+
+请完善各个类并给出fn()函数的定义，最后提交全部代码。
+
+
+
+附：原题目描述
+
+
+
+1、定义下面的类：（根据主函数要求，需要什么成员函数，自己分析设定）      
+
+（1）写一个Person类，数据成员包括姓名、年龄。      
+
+（2）写一个Date类，成员为年、月、日。      
+
+（3）写一个Student类，除了姓名和年龄，还包括生日（Date的对象）和成绩，该类由Person派生而来 。    
+
+（4）再写一个Teacher类，除了姓名和年龄，还有职称。并且，教师可以指定学生的成绩。该类也由Person派生而来。      
+
+
+
+2、编写主函数，生成一个学生、一个教师，输出他们的数据；教师重新指定学生的成绩后，输出学生的新数据。
+
+
+
+ 
+
+
+Input
+先输入学生的数据：姓名，年龄，出生年月日，分数
+
+
+
+再输入教室的数据：姓名，年龄，职称
+
+
+
+最后输入实习生的数据：姓名，年龄，出生日期，分数，职称
+
+
+Output
+按sample out格式输出三个人的信息
+
+
+Sample Input
+Liu 20 1988 1 1 78
+LI 45 professor
+sun 26 1980 3 3 90 shixisheng
+Sample Output
+name:Liu age:20
+birthday:1988/1/1
+score:78
+name:LI age:45
+title:professor
+name:sun age:26
+birthday:1980/3/3
+score:90
+title:shixisheng
+name:Liu age:20
+birthday:1988/1/1
+score:78
+name:LI age:45
+title:professor
+name:sun age:26
+birthday:1980/3/3
+score:90
+title:shixisheng
+Code 1 here:
+
+
+-----------------------------------------------------------------------------
+t3
+
+
+第1题.34、类的分解、纯虚函数、多继承、虚拟继承、多态
+
+
+Description
+（1）定义两个类：Bed类和Sofa类，要求，两个类中若有相同的成员或代码，
+应运用所学知识予以精简。
+（2）由Sofa和Bed派生一个类：SofaBed。
+（3）以上三个类，都有一个显示自己特点的功能，
+Sofa类显示的是：“SSSSSS”，Bed类显示的是：“BBBBBB”，
+SofaBed显示的是：“SBSBSB”
+（4）所有类中的成员函数，都不要输出重量，重量只能在fn函数中输出
+（可以考虑在类中加一个Getweight（）函数返回重量）。
+fn除了显示重量，还能显示对象的特点
+（5）用下面的主程序运行时，程序输出sample output所示的结果。
+请编写三个类以及fn()函数，提交全部代码。
+
+int main()
+
+{
+
+    int  weight1,weight2,weight3; 
+
+    Bed   *b=new Bed;
+
+    Sofa  *s=new  Sofa;
+
+    SofaBed  *sb=new SofaBed;
+
+    cin>>weight1>>weight2>>weight3;
+
+    b->Setweight(weight1);
+
+    s->Setweight(weight2);
+
+    sb->Setweight(weight3);
+
+    fn(b);
+
+    fn(s);
+
+    fn(sb); 
+
+    delete b;
+
+    delete s;
+
+    delete sb;
+
+    return 0;
+
+}
+Input
+50
+80
+55
+Output
+weight:50 BBBBBB
+weight:80 SSSSSS
+weight:55 SBSBSB
+
+
+Sample Input
+50
+80
+55
+Sample Output
+weight:50 BBBBBB
+weight:80 SSSSSS
+weight:55 SBSBSB
+Code 1 here:
+
+
+
+-------------------------------------------------------------------
+//t4
+
+5.13 重载运算符01
+
+Description
+
+编写一个Time类,并对“-”和“--”运算符重载，使该类的对象可以互相减和自减。
+（参考PPT第16-17页的代码）
+
+注意：两个重载运算符都不能写成Time的成员函数
+主函数：
+int main()
+
+{
+
+    int h1,m1,s1,h2,m2,s2;
+
+    cin>>h1>>m1>>s1>>h2>>m2>>s2;
+
+    Time t1(h1,m1,s1), t2(h2,m2,s2), t;
+
+    t=t1-t2;
+
+    t.disp();
+
+    t--;
+
+    t.disp();
+
+    (--t)--;
+
+    t.disp();
+
+    (t--).disp();
+
+    t.disp();
+
+    return 0;
+
+}
+Input
+
+	键盘输入两个时间t1、t2的时分秒
+
+Output
+
+	输出程序的运行结果
+
+Sample Input
+3 45 10 1 50 24
+Sample Output
+1:54'46"
+1:54'45"
+1:54'43"
+1:54'43"
+1:54'42"
+Code 1 here:
+
+
+----------------------------------------------------------------
+//t5
+Description
+
+	有一学生类Student，其成员有姓名和分数两项，
+    有一教师类Teacher，其成员有姓名和职称两项，
+    由这两个类派生出实习师范生StuTeacher，
+    它除了姓名、分数和职称外，
+    还有一个成员：年龄。
+
+为了减少代码冗余，
+Student和Teacher都从Person类派生。
+
+定义以上几个类，使下面的代码能运行出正确结果
+
+int main()
+
+{
+
+    char name[10],title[10];
+
+    int score,age;
+
+    cin>>name>>score;
+
+    Student s(name,score);
+
+    cin>>name>>title;
+
+    Teacher t(name,title);
+
+    cin>>name>>score>>title>>age;
+
+    StuTeacher st(name,score,title,age);
+
+
+
+	    Person *p;
+
+    p=&s;    p->Disp();   //显示学生信息
+
+    p=&t;    p->Disp();   //显示教师信息
+
+    p=&st;  p->Disp();   //显示师范生信息
+
+    st.Edit(s,90);           //修改学生成绩为90
+
+    s.Disp();
+
+    return 0;
+
+}
+
+以上main函数已在后台，不需要提交，
+系统会自动在你提交的代码之后添加主函数
+
+Input
+
+	输入学生、教师和实习师范生的信息
+
+Output
+
+	输出相应的信息
+
+Sample Input
+sun 77
+li pro
+zhang 50 zhujiao 25
+Sample Output
+sun,77
+li,pro
+zhang,50,zhujiao,25
+sun,90
+Code 1 here:
+
+
+----------------------------------------------------------
+//t6
+Description
+将上题的重载运算符改写成成员函数形式 : ***t4***
+********************************
+(t4) Description
+
+编写一个Time类,并对“-”和“--”运算符重载，使该类的对象可以互相减和自减。
+（参考PPT第16-17页的代码）
+
+注意：两个重载运算符都不能写成Time的成员函数
+主函数：
+int main()
+
+{
+
+    int h1,m1,s1,h2,m2,s2;
+
+    cin>>h1>>m1>>s1>>h2>>m2>>s2;
+
+    Time t1(h1,m1,s1), t2(h2,m2,s2), t;
+
+    t=t1-t2;
+
+    t.disp();
+
+    t--;
+
+    t.disp();
+
+    (--t)--;
+
+    t.disp();
+
+    (t--).disp();
+
+    t.disp();
+
+    return 0;
+
+}
+******************************************
+Input
+输入两个时间的时分秒
+
+
+Output
+输出程序运行结果
+
+
+Sample Input
+2 20 10 2 10 5
+Sample Output
+0:10'5"
+0:10'4"
+0:10'2"
+0:10'2"
+0:10'1"
+Code 1 here:
+
+---------------------------------------------------
+//t7
+5.19t2
+Description
+设有以下类定义：
+
+class Teacher{
+
+public:
+
+    //略
+
+private:
+
+    char *pname  //存名字的地址 
+
+    int age;
+
+};
+
+class Student{
+
+public:
+
+    //略
+
+protected:
+
+    char name[10];
+
+    int score;
+
+};
+
+
+
+class Tutor{
+
+public:
+
+    //略
+
+protected:
+
+    Student s;
+
+    Teacher t;
+
+    int num;//存储师生会面次数
+
+};
+
+且有主函数：
+
+int main()
+
+{
+
+    char name1[15],name2[15];
+
+    int score,age;
+
+    cin>>name1>>score>>name2>>age;
+
+    Tutor tt1(name1,score,name2,age),tt2;
+
+    tt1.Disp();
+
+    tt1.Date();    //师生碰面一次
+
+    tt2=tt1;       //此处调用的哪段代码？
+
+    tt2.Disp();
+
+    Tutor tt3=tt1;    //此处调用的哪段代码？
+
+    tt3.Date();
+
+    tt3.Disp();
+
+    return 0;
+
+}
+//| 情况                        | Person 是否需要重载 | Student 是否需要重载      |
+//| ----------------------      | -------------      | ------------------- |
+//| Person 用堆，Student 不用堆  | ✅ 是              | ❌ 否                 |
+//| Person 不用堆，Student 用堆  | ❌ 否              | ✅ 是                 |
+//| Person 和 Student 都用堆     | ✅ 是              | ✅ 是                 |
+//| Student 包含用堆的 Tdate 对象 | Tdate 需要          | ❌ 否（默认调用 Tdate 的 =） |
+
+请完善三个类，使主函数能得到正确的执行结果
+
+
+Input
+输入学生的姓名，分数，老师的姓名，年龄
+
+
+Output
+输出如sample output所示的运行结果
+
+
+Sample Input
+Zhang 89 Li 35
+Sample Output
+Student:Zhang,89
+Teacher:Li,35
+Number:0
+Student:Zhang,89
+Teacher:Li,35
+Number:1
+Student:Zhang,89
+Teacher:Li,35
+Number:2
+Code 1 here:
+
+
+-------------------------------------------------------
+//t8  
+****当时未作出****
+
+
+37. 类的分解、多继承、虚拟继承、多态、运算符重载
+Time Limit: 1 Sec  Memory Limit: 128 MB
+Submit: 437  Solved: 91
+[Submit][Status][Forum]
+Description
+
+已知主函数用到三个类：学生类Student、教师类Teacher和见习教师类StuTeacher。
+三个类都有姓名、年龄两项信息，
+且姓名都用堆存储，
+除姓名外，其他信息都不用堆存储。
+学生信息包括姓名、年龄和成绩，
+教师信息包括姓名、年龄和职称，
+而见习教师的信息包括姓名、年龄、成绩、职称（职称肯定是“jxjs”）和所属单位。
+以下是主函数，请根据主函数及输入输出样例给出所缺代码，
+使主函数得到正确的运行结果。
+要求：
+  1. 最大限度减少代码书写，提高代码重用率
+  2. 所有类的数据成员都必须设置成private属性，以防止被子类修改从而造成责任不明确
+  3. 不能有内存泄漏
+说明：三个类的对象若进行++运算，都是年龄加1岁 
+主函数不需要提交，只提交所缺代码
+主函数如下：
+int main()
+{
+    char name[20],title[20],company[20];
+    int age,score;
+
+    //cout<<"输入学生信息:";
+    cin>>name>>age>>score;
+    Student s(name,age,score);
+    (s++).Disp();    //显示学生信息，并使学生年龄增加1岁
+    s.Disp();
+    
+    //cout<<"输入教师信息:";
+    cin>>name>>age>>title;
+    Teacher t(name,age,title);
+    t.Disp();  //显示教师信息
+    (++(++t)).Disp();  //显示教师增加2岁后的信息
+
+    //cout<<"输入见习教师信息:";
+    cin>>name>>age>>score>>company;
+    StuTeacher st1(name,age,score,company);
+    StuTeacher st2=st1,st3,st4;
+    st4=st3=st2;
+    (st3++).Disp();
+    (++st3).Disp();
+
+    StuTeacher  st5;
+
+    st5=++st3;  
+
+    fn(s);  //显示学生信息
+    fn(t);  //显示教师信息
+    fn(st3); //显示见习教师信息
+    return 0;
+}
+
+Input
+输入学生、教师和见习教师的信息
+
+Output
+按样例输出的格式输出相关信息
+
+Sample Input
+aaa  18  80
+bbb  36  jiangshi
+ccc  22  90   sdtbu
+Sample Output
+aaa,18,80
+aaa,19,80
+bbb,36,jiangshi
+bbb,38,jiangshi
+ccc,22,90,jxjs,sdtbu
+ccc,24,90,jxjs,sdtbu
+aaa,19,80
+bbb,38,jiangshi
+ccc,25,90,jxjs,sdtbu
+HINT
+Source
+
+| 类          | 是否虚继承 | 是否有堆成员 | 是否要写 operator= | 是否要写 ++ |
+| ---------- | -----      | ------      | --------------    | ------- |
+| Person     | ✅ 是      | ✅ 有      | ✅ 要             |  ✅ 要     |
+| Student    | ✅ 是      | ❌ 无      |  可省略            | 可选      |
+| Teacher    | ✅ 是      | ✅ 有      | ✅ 要             | ✅ 要     |
+| StuTeacher | ❌         | ✅ 有      | ✅ 必须写         | ✅ 必须写   |
+
+
+
+-------------------------------------------------------
+
+
+
+
+//t9
+
+5.22
+
+第1题.40、重载插入运算符
+Description
+定义Student和GraduateStudent（由Student派生）两个类，
+学生包含姓名和分数两个数据，研究生包括姓名、分数和导师姓名。
+并使下面的程序能得到正确结果。 
+
+
+说明：下面的程序已经在后台，
+系统自动在你提交的代码后面添加上这些代码
+
+
+void fn(Student&s)
+
+
+{
+
+
+        cout<<s;
+
+
+}
+
+
+int main()   
+
+
+{
+
+
+       char s_name[20], t_name[20];
+
+
+       int  score;
+
+
+       cin>>s_name>>score;
+
+
+       Student s(s_name, score);   
+
+
+       cin>>s_name>>score>>t_name;
+
+
+       GraduateStudent g(s_name, score , t_name);      
+
+
+       cout<<s<<g;   
+
+
+       fn(s);
+
+
+       fn(g);
+
+
+       return 0;
+
+
+} 
+
+Input
+分别输入学生和研究生的数据
+
+
+Output
+输出样例所示的输出结果
+
+
+Sample Input
+zhangsan 85
+lisi 90 liulaoshi
+Sample Output
+name:zhangsan,score:85
+name:lisi,score:90,teacher:liulaoshi
+name:zhangsan,score:85
+name:lisi,score:90,teacher:liulaoshi
+Code 1 here:
+
+
+
+
+
+
+--------------------------------------------------------------------
+GPT
+t1
+📄 Description
+定义一个 Book 类，包含书名 title（字符串）和价格 price（整数）。
+请重载 << 运算符，使以下主函数运行后输出样例所示内容。
+
+后台主函数如下：
+
+int main() {
+    char title[100];
+    int price;
+    cin >> title >> price;
+    Book b(title, price);
+    cout << b;
+    return 0;
+}
+✅ Input
+CplusplusPrimer 128
+✅ Output
+title:CplusplusPrimer,price:128
+
+
+
+
+t2
+🧩 题目 2：继承关系中的输出（中等）
+📄 Description
+定义一个 Book 类（包含 title 和 price），
+并定义其派生类 EBook，
+在此基础上增加一个 url（电子书链接地址）。
+重载插入运算符以支持 cout << b << e;，
+使输出格式正确。
+
+后台主函数如下：
+
+int main() {
+    char title[100], url[100];
+    int price;
+    cin >> title >> price;
+    Book b(title, price);
+    cin >> title >> price >> url;
+    EBook e(title, price, url);
+    cout << b << e;
+    return 0;
+}
+✅ Input
+CBook 78
+EBook1 66 www.example.com
+✅ Output
+title:CBook,price:78
+title:EBook1,price:66,url:www.example.com
+
+
+
+
+t3
+
+🧩 题目 3：多级继承 + 重载插入（进阶）
+📄 Description
+定义类 Person 包含姓名和性别，
+类 Employee 继承自 Person，增加职位 position，
+类 Manager 再次继承 Employee，增加部门 department。
+分别重载 << 运算符，
+使 cout << person << employee << manager; 输出正确。
+
+后台主函数如下：
+
+int main() {
+    char name[30], gender[10], position[30], department[30];
+    cin >> name >> gender;
+    Person p(name, gender);
+    cin >> name >> gender >> position;
+    Employee e(name, gender, position);
+    cin >> name >> gender >> position >> department;
+    Manager m(name, gender, position, department);
+    cout << p << e << m;
+    return 0;
+}
+✅ Input
+Tom Male
+Alice Female Engineer
+Bob Male Director Sales
+✅ Output
+name:Tom,gender:Male
+name:Alice,gender:Female,position:Engineer
+name:Bob,gender:Male,position:Director,department:Sales
